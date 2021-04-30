@@ -4,9 +4,9 @@
 #include <iostream>
 #include "karatsuba.h"
 #include "div.h"
+#include "squareRoot.h"
 
-
-std::string root(std::string a, int precision)
+std::string Square::root(std::string a, int precision)
 {
     int x;
     std::string x0;
@@ -37,12 +37,14 @@ std::string root(std::string a, int precision)
         i++;
     }
 
-    return x0;
+    size_t i_cnt{ x0.length() - precision };
+    return x0.substr(0, i_cnt) + '.' + x0.substr(i_cnt, precision - i_cnt);
 }
 
 
-int main() 
+/*int main() 
 {
-    std::cout << "\n\n" << root("2", 600) << "\n\n";
+    Square s;
+    std::cout << "\n\n" << s.root("2", 600) << "\n\n";
     return 0;
-}
+}*/
