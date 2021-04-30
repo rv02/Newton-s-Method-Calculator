@@ -15,21 +15,22 @@ int set_flag() {
 
 int main() {
     bool flag = 1;
+    Karatsuba k;
+    Div d;
+    Square s;
     while (flag == 1) {
         int ch;
         std::cout << "Calculator:";
-        std::cout << "\n 1. Multiplication\n 2. Divison\n 3. Square-root \n 4. Exit";
+        std::cout << "\n 1. Multiplication\n 2. Divison\n 3. Square-root\n 4. Exit";
         std::cout << "\nEnter your choice: ";
         std::cin >> ch; 
         if (ch == 1) {
-            Karatsuba k;
             std::string num1, num2;
             std::cout << "Enter two numbers to be multiplied:\n";
             std::cin >> num1 >> num2;
             std::cout << "\n" << k.Multiply(num1, num2);
             flag = set_flag();
         } else if (ch == 2) {
-            Div d;
             std::string a, b;
             int decimal;
             std::cout << "Enter a : ";
@@ -42,11 +43,20 @@ int main() {
             flag = set_flag();
         } else if (ch == 3) 
         {
-            
+            std::string num;
+            int precision;
+            std::cout << "Enter number: ";
+            std::cin >> num;
+            std::cout << "Precision: ";
+            std::cin >> precision;
+            std::cout << "\n" << s.root(num, precision) << "\n";
+            flag = set_flag();
+        } else if(ch == 4) {
+            flag = 0;
+        } else {
+            std::cout << "Please enter a valid choice";
+            flag = set_flag();
         }
-        
-        
-    
     }
     
     
